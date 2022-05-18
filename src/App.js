@@ -1,24 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import {useEffect, useLayoutEffect, useState} from 'react'
+import UseStateComponent from './UseStateComponent';
+import UseEffectExample from './UseEffectExample';
 
 function App() {
+   const [name, setName] = useState({firstname:'',lastname:''})
+  useEffect(() => {
+    //console.log("rendered")
+  }, [])
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    <>
+    <h1>Hello {name.firstname}  {name.lastname}</h1> 
+      <form>
+       <input type="text" value={name.firstname} onChange = { (e) => setName({firstname:e.target.value})}> 
+        </input>
+      
+       </form>
+
+       <UseStateComponent></UseStateComponent>
+       <UseEffectExample></UseEffectExample>
+
+    
+    </>
   );
 }
 
